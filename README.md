@@ -2,6 +2,7 @@
 
 NodeBB Plugin for SSO with leapbase
 
+Forked from https://github.com/julianlam/nodebb-plugin-sso-oauth
 
 # config.json
 
