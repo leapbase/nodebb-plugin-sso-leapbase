@@ -1,11 +1,11 @@
 {
   "name": "nodebb-plugin-sso-leapbase",
-  "version": "0.3.4",
+  "version": "0.1.0",
   "description": "NodeBB OAuth SSO Leapbase",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/julianlam/nodebb-plugin-sso-oauth"
+    "url": "https://github.com/leapbase/nodebb-plugin-sso-leapbase"
   },
   "keywords": [
     "nodebb",
@@ -18,12 +18,12 @@
     "registration"
   ],
   "author": {
-    "name": "Julian Lam",
-    "email": "julian@nodebb.org"
+    "name": "Leapbase",
+    "email": "yliu0@leapbase.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/julianlam/nodebb-plugin-sso-oauth/issues"
+    "url": "https://github.com/leapbase/nodebb-plugin-sso-leapbase/issues"
   },
   "readme": "",
   "readmeFilename": "README.md",
