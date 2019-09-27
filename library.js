@@ -148,8 +148,6 @@
         });
       }));
 
-      console.log('>>> constants.scope:', constants.scope);
-      
       strategies.push({
         name: constants.name,
         url: '/auth/' + constants.name,
@@ -169,13 +167,13 @@
     // NodeBB *requires* the following: id, displayName, emails.
     // Everything else is optional.
     var profile = {};
-    
     profile.id = data.id;
     profile.displayName = data.name;
     profile.emails = [{ value: data.email }];
-    
-    // Do you want to automatically make somebody an admin? This line might help you do that...
-    // profile.isAdmin = data.isAdmin ? true : false;
+    profile.isAdmin = data.roles.indexOf('admin') >= 0; 
+
+    console.log('user data:', data);
+    console.log('profile:', profile);
 
     // eslint-disable-next-line
     callback(null, profile);
