@@ -166,13 +166,15 @@
     // Alter this section to include whatever data is necessary
     // NodeBB *requires* the following: id, displayName, emails.
     // Everything else is optional.
-    var profile = {};
-    profile.id = data.id;
-    profile.displayName = data.name;
-    profile.emails = [{ value: data.email }];
-    profile.isAdmin = data.roles.indexOf('admin') >= 0; 
-
+    
     console.log('user data:', data);
+    
+    var profile = {};
+    profile.id = data.email.replace(/@/, '_');
+    profile.displayName = data.email;
+    profile.emails = [{ value: data.email }];
+    profile.isAdmin = data.roles && data.roles.indexOf('admin') >= 0; 
+
     console.log('profile:', profile);
 
     // eslint-disable-next-line
