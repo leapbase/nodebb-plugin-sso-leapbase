@@ -152,7 +152,7 @@
         name: constants.name,
         url: '/auth/' + constants.name,
         callbackURL: '/auth/' + constants.name + '/callback',
-        icon: 'fa-check-square',
+        icon: 'fa-sign-in', //'fa-check-square',
         scope: (constants.scope || '').split(','),
       });
 
