@@ -1,5 +1,3 @@
-
-ubuntu@ip-172-31-83-64:~/git/nodebb/node_modules/nodebb-plugin-sso-leapbase$ cat library.js 
 'use strict';
 
 (function (module) {
