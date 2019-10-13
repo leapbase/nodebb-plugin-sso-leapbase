@@ -1,3 +1,5 @@
+
+ubuntu@ip-172-31-83-64:~/git/nodebb/node_modules/nodebb-plugin-sso-leapbase$ cat library.js 
 'use strict';
 
 (function (module) {
@@ -136,7 +138,7 @@
       passport.use(constants.name, new passportOAuth(opts, function (req, token, secret, profile, done) {
         OAuth.login({
           oAuthid: profile.id,
-          handle: profile.displayName,
+          handle: profile.username || profile.displayName,
           email: profile.emails[0].value,
           isAdmin: profile.isAdmin,
         }, function (err, user) {
@@ -166,12 +168,12 @@
     // Alter this section to include whatever data is necessary
     // NodeBB *requires* the following: id, displayName, emails.
     // Everything else is optional.
-    
+
     console.log('user data:', data);
     
     var profile = {};
-    profile.id = data.email.replace(/@/, '_');
-    profile.displayName = data.email;
+    profile.id = data.username || data.email.replace(/@/, '_');
+    profile.displayName = data.username || data.email;
     profile.emails = [{ value: data.email }];
     profile.isAdmin = data.roles && data.roles.indexOf('admin') >= 0; 
 
@@ -217,7 +219,7 @@
           }
           if (!uid) {
             User.create({
-              username: payload.handle,
+              username: payload.handle && payload.handle.replace(/@/, '_'),
               email: payload.email,
             }, function (err, uid) {
               if (err) {
